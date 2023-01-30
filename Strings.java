@@ -64,48 +64,71 @@ public class Strings {
 //        }
 //    }
 
-    static String reverse(String s1){
+//    static String reverse(String s1){
+//
+//        char[] ch = s1.toCharArray();
+//        int n = s1.length();
+//
+//        int p1 = 0;
+//        int p2 = n-1;
+//        while(p1<p2){
+//            char t = ch[p1];
+//            ch[p1] = ch[p2];
+//            ch[p2] = t;
+//            p1++;
+//            p2--;
+//
+//        }
+//
+//        s1 = String.valueOf(ch);
+//        return s1;
+//    }
 
-        char[] ch = s1.toCharArray();
-        int n = s1.length();
+    static int firstoccr(String s1,String s2){
+        int n2 = s2.length();
+        int n1 = s1.length();
+        for(int i=0;i<n1-n2+1;i++){
 
-        int p1 = 0;
-        int p2 = n-1;
-        while(p1<p2){
-            char t = ch[p1];
-            ch[p1] = ch[p2];
-            ch[p2] = t;
-            p1++;
-            p2--;
-
-        }
-
-        s1 = String.valueOf(ch);
-        return s1;
-    }
-    public static void main(String[] args) {
-        String s = new String();
-        s = "crulgzfkif gg ombt vemmoxrgf qoddptokkz op xdq hv ";
-        s = s.trim();
-//        System.out.println(isPal(s));
-//        System.out.println(copy(s));
-//        System.out.println(reverse(s));
-        String s2 = reverse(s);
-        System.out.println(s2);
-        int n = s2.length();
-        int start = 0;
-        String ans = "";
-        for(int i=0;i<n;i++){
-
-            if(s2.charAt(i)==' '){
-                ans += reverse(s2.substring(start,i)) + " ";
-                start = i+1;
+            if(s1.substring(i,i+n2).equals(s2)){
+                return i+1;
             }
 
         }
-//        System.out.println(reverse(s2.substring(start,n)));
-        ans += reverse(s2.substring(start,n));
-        System.out.println(ans);
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        String s = new String();
+//        s = "crulgzfkif gg ombt vemmoxrgf qoddptokkz op xdq hv ";
+//        s = s.trim();
+////        System.out.println(isPal(s));
+////        System.out.println(copy(s));
+////        System.out.println(reverse(s));
+//        String s2 = reverse(s);
+//        System.out.println(s2);
+//        int n = s2.length();
+//        int start = 0;
+//        String ans = "";
+//        for(int i=0;i<n;i++){
+//
+//            if(s2.charAt(i)==' '){
+//                ans += reverse(s2.substring(start,i)) + " ";
+//                start = i+1;
+//            }
+//
+//        }
+////        System.out.println(reverse(s2.substring(start,n)));
+//        ans += reverse(s2.substring(start,n));
+//        System.out.println(ans);
+
+//        String s1 = "aabababaa";
+//        String s2 = "ba";
+
+        String s1 = "abc";
+        String s2 = "ac";
+
+        System.out.println(firstoccr(s1,s2));
+
 
     }
 }
